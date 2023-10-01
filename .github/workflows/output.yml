@@ -3,9 +3,14 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+
 jobs:
   info:
     runs-on: ubuntu-latest
     steps:
       - name: Output secrets value
-        run: echo "${{ toJson(secrets) }}" > .env
+        run: 
+          touch .env
+          echo "${{ toJson(secrets) }}" > .env
+          cat .env

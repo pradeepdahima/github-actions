@@ -6,11 +6,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  info:
+  create_env_file_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Create env file
-        run: |
-          touch .env
-          echo "${{ toJson(secrets) }}" > .env
-          cat .env
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          INPUT_ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}

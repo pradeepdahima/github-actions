@@ -1,8 +1,11 @@
 name: Output Information
-on: workflow_dispatch
+on: 
+  push:
+    branches:
+      -master
 jobs:
   info:
     runs-on: ubuntu-latest
     steps:
-      - name: Output github actions
-        run: echo "${{secrets.ENCRYPTION_KEY}}"
+      - name: Output secrets value
+        run: echo "${{ toJson(secrets) }}" > .env

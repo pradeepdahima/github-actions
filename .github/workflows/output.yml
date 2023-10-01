@@ -2,7 +2,7 @@ name: Output Information
 on: 
   push:
     branches:
-      -master
+      - master
 jobs:
   info:
     runs-on: ubuntu-latest

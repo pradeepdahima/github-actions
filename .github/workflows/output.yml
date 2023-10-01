@@ -9,8 +9,8 @@ jobs:
   info:
     runs-on: ubuntu-latest
     steps:
-      - name: Output secrets value
-        run: 
+      - name: Create env file
+        run: |
           touch .env
           echo "${{ toJson(secrets) }}" > .env
           cat .env
